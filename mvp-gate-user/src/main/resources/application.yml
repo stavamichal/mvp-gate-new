@@ -1,0 +1,36 @@
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,startup
+  tracing:
+    sampling:
+      probability: 1.0
+server:
+  port: 8081
+spring:
+  application:
+    name: store
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${PG_STORE_DB_USER:pg}
+    password: ${PG_STORE_DB_PASSWORD:pg}
+    url: jdbc:postgresql://${PG_STORE_HOST:localhost}:${PG_STORE_PORT:5432}/${PG_STORE_DB_NAME:pg_store}
+  jpa:
+    hibernate:
+      ddl-auto: update # temporary for easy development
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      jakarta:
+        persistence:
+          sharedCache:
+            mode: UNSPECIFIED # fix of hibernate bug
