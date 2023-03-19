@@ -1,5 +1,5 @@
 grpc:
-  port: 6666
+  port: 6565
 logging:
   level:
     cz.tyckouni.mvpgate: debug
@@ -27,7 +27,7 @@ spring:
     url: jdbc:postgresql://${MVP_PARTY_HOST:localhost}:${MVP_PARTY_PORT:5432}/${MVP_PARTY_DB_NAME:mvp_party}
   jpa:
     hibernate:
-      ddl-auto: update # temporary for easy development
+      ddl-auto: create-drop # temporary for easy development
     open-in-view: false
     properties:
       hibernate:

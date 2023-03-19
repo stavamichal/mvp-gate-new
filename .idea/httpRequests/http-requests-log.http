@@ -1,0 +1,1 @@
+GRPC localhost:6565/cz.tyckouni.mvpgate.party.IdpService/findByGuid
