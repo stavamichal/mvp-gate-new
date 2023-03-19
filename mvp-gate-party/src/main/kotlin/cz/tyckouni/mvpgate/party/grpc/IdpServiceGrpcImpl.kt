@@ -25,7 +25,7 @@ class IdpServiceGrpcImpl(
 
         val idp = idpService.findByGuid(UUID.fromString(request.guid))
             .map(converter::toGrpc)
-            .orElse(null)
+            .orElse(IdpGrpc.getDefaultInstance())
 
         span.end()
 
