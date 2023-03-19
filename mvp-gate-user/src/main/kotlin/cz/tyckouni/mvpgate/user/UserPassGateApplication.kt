@@ -1,4 +1,4 @@
-package cz.tyckouni.mvpgate.party
+package cz.tyckouni.mvpgate.user
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,8 +7,8 @@ import org.springframework.boot.runApplication
  * User application runner class.
  */
 @SpringBootApplication
-class StorePassGateApplication
+class UserApplication
 
 fun main(args: Array<String>) {
-    runApplication<StorePassGateApplication>(*args)
+    runApplication<UserApplication>(*args)
 }

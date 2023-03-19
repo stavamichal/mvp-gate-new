@@ -17,12 +17,12 @@ server:
   port: 8081
 spring:
   application:
-    name: store
+    name: user
   datasource:
     driver-class-name: org.postgresql.Driver
-    username: ${PG_STORE_DB_USER:pg}
-    password: ${PG_STORE_DB_PASSWORD:pg}
-    url: jdbc:postgresql://${PG_STORE_HOST:localhost}:${PG_STORE_PORT:5432}/${PG_STORE_DB_NAME:pg_store}
+    username: ${MVP_USER_DB_USER:mvp}
+    password: ${MVP_USER_DB_PASSWORD:mvp}
+    url: jdbc:postgresql://${MVP_USER_HOST:localhost}:${MVP_USER_PORT:5432}/${MVP_USER_DB_NAME:mvp_party}
   jpa:
     hibernate:
       ddl-auto: update # temporary for easy development
