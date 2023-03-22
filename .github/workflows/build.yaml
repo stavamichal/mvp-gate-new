@@ -1,4 +1,4 @@
-name: SonarCloud
+name: Project build ubuntu
 on:
   push:
     branches:
