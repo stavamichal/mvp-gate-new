@@ -30,11 +30,8 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Vojtech-Sassmann_mvp-gate
+      - name: Build and run tests
+        run: mvn --batch-mode --update-snapshots verify
   build-raspberry:
     name: Build on raspberry
     runs-on: [ self-hosted, Linux, ARM64 ]
@@ -47,5 +44,5 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
           architecture: aarch64
-      - name: Build with Maven
+      - name: Build and run tests
         run: mvn --batch-mode --update-snapshots verify
