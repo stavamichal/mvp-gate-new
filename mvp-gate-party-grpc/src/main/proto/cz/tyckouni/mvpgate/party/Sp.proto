@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "mvpgate/Base.proto";
+
+package cz.tyckouni.mvpgate.party;
+
+option java_multiple_files = true;
+option java_package = "cz.tyckouni.mvpgate.party.grpc";
+
+service SpService {
+  rpc findByGuid(mvpgate.ByGuidRequest) returns (SpGrpc) {}
+}
+
+message SpGrpc {
+  string guid = 1;
+  string name = 2;
+}
